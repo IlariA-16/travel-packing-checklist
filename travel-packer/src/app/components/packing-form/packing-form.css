@@ -1,14 +1,14 @@
 .form-container {
   background: #ffffff;
   padding: 24px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(67, 56, 202, 0.05);
+  border-radius: 16px;
   margin-bottom: 24px;
-  border: 2px solid #e0e7ff;
+  border: 1px solid #ebdccb;
+  box-shadow: 0 10px 25px rgba(67, 56, 30, 0.03);
 }
 
 h2 {
-  color: #4338ca;
+  color: #c25e28;
   margin-top: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -22,11 +22,11 @@ form {
 }
 
 input[type="text"], input[type="number"] {
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  color: #1a202c;
+  background: #faf7f2;
+  border: 2px solid #ebdccb;
+  color: #433e37;
   padding: 14px 16px;
-  border-radius: 14px;
+  border-radius: 12px;
   font-size: 0.95rem;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -39,8 +39,8 @@ input[type="text"] {
 input[type="text"]:focus, input[type="number"]:focus {
   outline: none;
   background: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  border-color: #c25e28;
+  box-shadow: 0 0 0 4px rgba(194, 94, 40, 0.12);
 }
 
 input[type="number"] {
@@ -49,23 +49,19 @@ input[type="number"] {
 }
 
 button {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #c25e28 100%);
   color: #ffffff;
   border: none;
   padding: 14px 28px;
-  border-radius: 14px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 12px rgba(194, 94, 40, 0.2);
   transition: all 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4);
-}
-
-button:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(194, 94, 40, 0.3);
 }

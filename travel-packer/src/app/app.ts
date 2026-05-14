@@ -13,14 +13,13 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   travelItems: Item[] = [];
+  currentFilter: 'all' | 'active' | 'packed' = 'all'; // <-- AGGIUNTO per tracciare il filtro attivo
   private isBrowser: boolean;
 
-  // Iniettiamo il PLATFORM_ID per capire se siamo sul browser o sul server
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  // Eseguito all'avvio dell'applicazione
   ngOnInit() {
     if (this.isBrowser) {
       const savedItems = localStorage.getItem('travelPackerItems');
@@ -30,29 +29,63 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // Salva lo stato attuale nel localStorage
   private saveToLocalStorage() {
     if (this.isBrowser) {
       localStorage.setItem('travelPackerItems', JSON.stringify(this.travelItems));
     }
   }
 
+  // <-- AGGIUNTO per decorare i testi con icone a tema automatiche
+  private getAutomaticEmoji(name: string): string {
+    const text = name.toLowerCase();
+    if (text.includes('scarpe') || text.includes('snakers')) return '👟 ';
+    if (text.includes('magliett') || text.includes('t-shirt') || text.includes('camicia')) return '👕 ';
+    if (text.includes('pantalon') || text.includes('jeans')) return '👖 ';
+    if (text.includes('spazzolin') || text.includes('dentifricio')) return '🪥 ';
+    if (text.includes('carica') || text.includes('telefono') || text.includes('cav')) return '🔌 ';
+    if (text.includes('passaporto') || text.includes('document')) return '🪪 ';
+    if (text.includes('crema') || text.includes('solare') || text.includes('bagnoschiuma')) return '🧴 ';
+    if (text.includes('costume')) return '🩱 ';
+    if (text.includes('soldi') || text.includes('portafoglio') || text.includes('carta')) return '💳 ';
+    return '📦 ';
+  }
+
   addItem(newItem: Item) {
+    newItem.name = this.getAutomaticEmoji(newItem.name) + newItem.name; // <-- Applica l'emoji
     this.travelItems.push(newItem);
-    this.saveToLocalStorage(); // <-- Salva dopo l'aggiunta
+    this.saveToLocalStorage();
   }
 
   toggleItem(id: number) {
     const item = this.travelItems.find(i => i.id === id);
     if (item) {
       item.packed = !item.packed;
-      this.saveToLocalStorage(); // <-- Salva dopo la spunta
+      this.saveToLocalStorage();
     }
   }
 
   removeItem(id: number) {
     this.travelItems = this.travelItems.filter(i => i.id !== id);
-    this.saveToLocalStorage(); // <-- Salva dopo l'eliminazione
+    this.saveToLocalStorage();
+  }
+
+  // <-- AGGIUNTO: Funzione per svuotare l'intera lista
+  clearAllItems() {
+    if (confirm('Sei sicuro di voler svuotare completamente la valigia?')) {
+      this.travelItems = [];
+      this.saveToLocalStorage();
+    }
+  }
+
+  // <-- AGGIUNTO: Calcola dinamicamente gli oggetti filtrati da mostrare
+  get filteredItems(): Item[] {
+    if (this.currentFilter === 'active') {
+      return this.travelItems.filter(item => !item.packed);
+    }
+    if (this.currentFilter === 'packed') {
+      return this.travelItems.filter(item => item.packed);
+    }
+    return this.travelItems;
   }
 
   get totalItems(): number {

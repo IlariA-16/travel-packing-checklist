@@ -1,9 +1,9 @@
 body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 50px 20px;
-  color: #2d3748;
+  color: #433e37;
   min-height: 100vh;
 }
 
@@ -17,44 +17,100 @@ h1 {
   font-weight: 800;
   text-align: center;
   margin-bottom: 35px;
-  color: #4338ca;
-  text-shadow: 0 2px 4px rgba(67, 56, 202, 0.1);
+  color: #c25e28;
+  text-shadow: 0 2px 4px rgba(194, 94, 40, 0.08);
 }
+
+/* PANNELLO STATISTICHE */
 .stats-container {
   background: #ffffff;
-  padding: 18px 24px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(67, 56, 202, 0.05);
+  padding: 24px;
+  border-radius: 16px;
   margin-bottom: 24px;
-  border: 2px solid #e0e7ff;
+  border: 1px solid #ebdccb;
+  box-shadow: 0 10px 25px rgba(67, 56, 30, 0.03);
 }
 
 .stats-text {
   display: flex;
   justify-content: space-between;
   font-size: 0.95rem;
-  color: #4a5568;
+  color: #6e6558;
   margin-bottom: 12px;
 }
 
 .stats-text strong {
-  color: #4338ca;
+  color: #c25e28;
 }
 
 .progress-bar-bg {
-  background: #e2e8f0;
+  background: #f0e6d8;
   height: 10px;
   width: 100%;
   border-radius: 999px;
   overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .progress-bar-fill {
-  background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);
+  background: linear-gradient(90deg, #d97706 0%, #059669 100%);
   height: 100%;
-  width: 0%; 
+  width: 0%;
   border-radius: 999px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* BARRA STRUMENTI DEI FILTRI */
+.actions-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #f3ebd8;
+}
 
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-buttons button {
+  background: #f7f2e8;
+  color: #7c7263;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background: #eddcc4;
+  color: #433e37;
+}
+
+.filter-buttons button.active {
+  background: #c25e28;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(194, 94, 40, 0.2);
+}
+
+.btn-clear-all {
+  background: #fff1f2;
+  color: #e11d48;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-clear-all:hover {
+  background: #e11d48;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.2);
+}
