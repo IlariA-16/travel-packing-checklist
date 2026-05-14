@@ -1,1 +1,22 @@
-   <router-outlet />
+<main class="app-container">
+  <h1>🧳 TravelPacker - Lista Bagagli</h1>
+
+  <!-- Pannello Contatore e Barra di Progresso -->
+  <div class="stats-container" *ngIf="totalItems > 0">
+    <div class="stats-text">
+      <span>Stato della valigia:</span>
+      <strong>{{ packedItems }} di {{ totalItems }} oggetti pronti ({{ progressPercentage }}%)</strong>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+  </div>
+  
+  <app-packing-form (itemAdded)="addItem($event)"></app-packing-form>
+  
+  <app-packing-list 
+    [items]="travelItems"
+    (togglePacked)="toggleItem($event)"
+    (deleteItem)="removeItem($event)">
+  </app-packing-list>
+</main>

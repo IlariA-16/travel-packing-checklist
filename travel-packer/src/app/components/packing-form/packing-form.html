@@ -1,1 +1,21 @@
-<p>packing-form works!</p>
+<div class="form-container">
+  <h2>Cosa devi portare?</h2>
+  <form (ngSubmit)="submitForm()">
+    <input 
+      type="text" 
+      [(ngModel)]="itemName" 
+      name="itemName" 
+      placeholder="Es. Spazzolino, Caricabatterie..." 
+      required
+    />
+    
+    <input 
+      type="number" 
+      [(ngModel)]="itemQuantity" 
+      name="itemQuantity" 
+      min="1"
+    />
+
+    <button type="submit">Aggiungi</button>
+  </form>
+</div>

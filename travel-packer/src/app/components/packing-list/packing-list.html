@@ -1,1 +1,16 @@
-<p>packing-list works!</p>
+<div class="list-container">
+  <h2>I tuoi bagagli</h2>
+  
+  <p *ngIf="items.length === 0" class="empty-message">
+    La valigia è vuota. Aggiungi qualcosa sopra!
+  </p>
+
+  <ul *ngIf="items.length > 0">
+    <li *ngFor="let item of items" [ngClass]="{ 'is-packed': item.packed }">
+      <span (click)="onToggle(item.id)" class="item-text">
+        {{ item.quantity }}x {{ item.name }}
+      </span>
+      <button (click)="onDelete(item.id)" class="btn-delete">Elimina</button>
+    </li>
+  </ul>
+</div>
