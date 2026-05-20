@@ -71,7 +71,7 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "dir": "dist/travel-packer/browser",
-            "baseHref": "https://github.io"
+            "baseHref": "https://ilaria-16.github.io/travel-packing-checklist/"
           }
         }
 
