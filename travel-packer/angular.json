@@ -67,9 +67,14 @@
         "test": {
           "builder": "@angular/build:unit-test"
         },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+                "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "dir": "dist/travel-packer/browser",
+            "baseHref": "https://github.io"
+          }
         }
+
       }
     }
   }
