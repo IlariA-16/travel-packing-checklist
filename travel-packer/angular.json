@@ -72,7 +72,7 @@
           "options": {
             "dir": "dist/travel-packer/browser",
             "baseHref": "https://github.io"
-
+          }
         }
 
       }
